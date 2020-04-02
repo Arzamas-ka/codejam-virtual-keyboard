@@ -15,6 +15,7 @@ const dataKeyboardEng = [
     { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' }
   ],
   [
+    { letter: 'RU/EN', class: 'key-button key-languages' },
     { letter: 'q', class: 'key-button key-small', id: 81, code: 'KeyQ' },
     { letter: 'w', class: 'key-button key-small', id: 87, code: 'KeyW' },
     { letter: 'e', class: 'key-button key-small', id: 69, code: 'KeyE' },
@@ -64,7 +65,6 @@ const dataKeyboardEng = [
     }
   ],
   [
-    { letter: 'RU/EN', class: 'key-button key-languages' },
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',
@@ -110,6 +110,7 @@ const dataKeyboardRu = [
     { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' }
   ],
   [
+    { letter: 'RU/EN', class: 'key-button key-languages' },
     { letter: 'й', class: 'key-button key-small', id: 81, code: 'KeyQ' },
     { letter: 'ц', class: 'key-button key-small', id: 87, code: 'KeyW' },
     { letter: 'у', class: 'key-button key-small', id: 69, code: 'KeyE' },
@@ -154,7 +155,6 @@ const dataKeyboardRu = [
     }
   ],
   [
-    { letter: 'RU/EN', class: 'key-button key-languages' },
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',

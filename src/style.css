@@ -30,19 +30,6 @@ body {
   color: #444;
 }
 
-/* .keyboard {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-
-  width: 800px;
-  margin: 0 auto;
-
-  background-color: #9CE5D1;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-} */
-
 .keyboard {
   display: flex;
   flex-direction: column;
@@ -103,21 +90,6 @@ body {
 		0 0 0 0.05em rgba(0, 0, 0, 0.4), 
 		-0.025em -0.05em 0.025em rgba(255, 255, 255, 0.8) inset;
 }
-
-/* .key-button  {
-	display: inline-block;
-}
-.key-button {
-	margin: auto;
-	padding: 0.2em 0.375em;
-	position: absolute;
-	top: 50%;
-	left: 0;
-	font-size: 0.5em;
-	line-height: 2;
-	transform: translateY(-50%) scaleX(0.875);
-	width: 100%;
-} */
 
 .key-small {
   display: inline-block;
