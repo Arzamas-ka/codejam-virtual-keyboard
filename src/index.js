@@ -30,6 +30,13 @@ const clickListenerKeyboard = () => {
         return;
       }
     }, 200);
+
+    let button = keyboard.querySelector(`[data-letter='${event.target.innerHTML}']`);
+    event.target.classList.toggle('key-button:active');
+
+    const functionalButtons = ['RU/EN', 'CapsLock', 'Alt', 'Ctrl'];
+    if (functionalButtons.includes(button.innerText)) return;
+
   };
   keyboard.removeEventListener('click', handler);
   keyboard.addEventListener('click', handler);
