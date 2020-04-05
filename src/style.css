@@ -84,6 +84,7 @@ body {
 .key-button:not(:last-of-type) {
 	margin-right: .4em;
 }
+
 .key-button:active {
 	box-shadow:
 		0.1em 0.1em 0.1em rgba(0, 0, 0, 0.2),

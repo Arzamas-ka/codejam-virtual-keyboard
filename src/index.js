@@ -3,13 +3,14 @@ import dataKeyboard from './dataKeyboard';
 import './style.css';
 
 const mainContainer = document.createElement('div');
+const textarea = document.createElement('textarea');
+
 let language = localStorage.getItem('keyboardLanguage') || 'en';
 let isCapsLockActive = false;
 let isShiftActive = false;
 let keyboard;
 
 const renderTextarea = () => {
-  const textarea = document.createElement('textarea');
   textarea.classList = 'textarea';
   textarea.setAttribute = 'row = 50';
   textarea.setAttribute = 'cols = 5';
@@ -17,7 +18,7 @@ const renderTextarea = () => {
 };
 
 const clickListenerKeyboard = () => {
-  const handler = event => {
+  const handler = (event) => {
     if (!event.target.classList.contains('key-button')) return;
 
     setTimeout(() => {
@@ -31,12 +32,37 @@ const clickListenerKeyboard = () => {
       }
     }, 200);
 
-    let button = keyboard.querySelector(`[data-letter='${event.target.innerHTML}']`);
+    let button = keyboard.querySelector(
+      `[data-letter='${event.target.innerHTML}']`
+    );
     event.target.classList.toggle('key-button:active');
-
+    console.log(button);
     const functionalButtons = ['RU/EN', 'CapsLock', 'Alt', 'Ctrl'];
     if (functionalButtons.includes(button.innerText)) return;
 
+    if (button.innerText === 'Shift') {
+      isShiftActive = !isShiftActive;
+      return;
+    }
+
+    if (button.innerText === 'Space') {
+      textarea.value += ' ';
+      return;
+    }
+
+    if (button.innerText === 'Enter') {
+      textarea.value += '\n';
+      return;
+    }
+
+    if (button.innerText === 'Backspace' || textarea.value === 'Backspace') {
+      if (textarea.value.length < 0) return;
+      for (let i = 0; i < textarea.value.length; i++) {
+        textarea.value = textarea.value.slice(i, textarea.value.length - 1);
+        return;
+      }
+      return;
+    }
   };
   keyboard.removeEventListener('click', handler);
   keyboard.addEventListener('click', handler);
@@ -47,7 +73,7 @@ const renderKeyboard = () => {
   keyboard.classList = 'keyboard';
 
   const languageKeyboard = dataKeyboard['en'];
-  languageKeyboard.forEach(row => {
+  languageKeyboard.forEach((row) => {
     const rowWrapper = document.createElement('div');
     rowWrapper.classList = 'row-wrapper';
 
