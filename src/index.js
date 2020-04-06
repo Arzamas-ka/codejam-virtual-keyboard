@@ -14,17 +14,17 @@ const renderTextarea = () => {
   textarea.classList = 'textarea';
   textarea.setAttribute = 'row = 50';
   textarea.setAttribute = 'cols = 5';
-  mainContainer.append(textarea);
+  mainContainer.prepend(textarea);
 };
 
 const clickListenerKeyboard = () => {
-  const handler = (event) => {
+  const functionalButtonsHandler = (event) => {
     if (!event.target.classList.contains('key-button')) return;
 
     setTimeout(() => {
-      event.target.classList.contains('key-button');
+      event.target.classList.toggle('key-button:active');
 
-      if (event.target.innerText === 'RU/EN') {
+      if (button.innerText === 'RU/EN') {
         language = language === 'en' ? 'ru' : 'en';
         localStorage.setItem('keyboardLanguage', `${language}`);
         renderKeyboard();
@@ -36,7 +36,7 @@ const clickListenerKeyboard = () => {
       `[data-letter='${event.target.innerHTML}']`
     );
     event.target.classList.toggle('key-button:active');
-    console.log(button);
+
     const functionalButtons = ['RU/EN', 'CapsLock', 'Alt', 'Ctrl'];
     if (functionalButtons.includes(button.innerText)) return;
 
@@ -64,15 +64,19 @@ const clickListenerKeyboard = () => {
       return;
     }
   };
-  keyboard.removeEventListener('click', handler);
-  keyboard.addEventListener('click', handler);
+  keyboard.removeEventListener('click', functionalButtonsHandler);
+  keyboard.addEventListener('click', functionalButtonsHandler);
 };
 
 const renderKeyboard = () => {
-  keyboard = document.createElement('div');
-  keyboard.classList = 'keyboard';
+  const isKeyboardExist = document.querySelector('keyboard');
 
-  const languageKeyboard = dataKeyboard['en'];
+  if (isKeyboardExist) mainContainer.removeChild(isKeyboardExist);
+
+  keyboard = document.createElement('div');
+  keyboard.className = 'keyboard';
+
+  const languageKeyboard = dataKeyboard[language];
   languageKeyboard.forEach((row) => {
     const rowWrapper = document.createElement('div');
     rowWrapper.classList = 'row-wrapper';
@@ -80,8 +84,12 @@ const renderKeyboard = () => {
     let ind = 0;
     while (ind < row.length) {
       const span = document.createElement('span');
-      span.classList = row[ind].class;
 
+      if (row[ind].id) {
+        span.id = row[ind].id;
+      }
+
+      span.className = row[ind].class;
       span.setAttribute('data-code', `${row[ind].code}`);
 
       span.textContent = row[ind].letter;
@@ -93,6 +101,17 @@ const renderKeyboard = () => {
             : row[ind].letter
         }`
       );
+
+      span.setAttribute('data-code', `${row[ind].code}`);
+
+      span.textContent =
+        isCapsLockActive && row[ind].letter.length === 1
+          ? row[ind].letter.toUpperCase()
+          : row[ind].letter;
+
+      if (row[ind].letter === 'Alt' || row[ind].letter === 'Ctrl') {
+        span.style.width = '50px';
+      }
 
       rowWrapper.append(span);
       ind++;
@@ -110,10 +129,68 @@ const render = () => {
   renderKeyboard();
 
   mainContainer.className = 'container';
-  document.body.append(mainContainer);
+  document.body.prepend(mainContainer);
 };
 render();
 
 window.onload = () => {
   document.querySelector('.textarea').focus();
 };
+
+document.addEventListener('keyup', (event) => {
+  if (event.code === 'CapsLock' && !event.getModifierState('CapsLock')) {
+    isCapsLockActive = false;
+    renderKeyboard();
+  }
+
+  if (event.code === 'CapsLock') {
+    const button = keyboard.querySelector(`[data-letter='${event.code}']`);
+    button.classList.toggle('key-button:active');
+
+    setTimeout(() => {
+      button.classList.toggle('key-button:active');
+    }, 200);
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  const functionalButtons = [
+    'ControlLeft',
+    'ControlRight',
+    'AltLeft',
+    'AltRight',
+    'ShiftLeft',
+    'ShiftRight',
+  ];
+
+  if (event.code === 'CapsLock' && event.getModifierState('CapsLock')) {
+    isCapsLockActive = true;
+    renderKeyboard();
+  }
+
+  if (
+    (event.ctrlKey && event.code === 'ShiftLeft') ||
+    (event.ctrlKey && event.code === 'ShiftRight')
+  ) {
+    language = language === 'en' ? 'ru' : 'en';
+    localStorage.setItem('keyboardLanguage', `${language}`);
+    renderKeyboard();
+  }
+
+  if (event.key === 'Meta') return;
+
+  let button;
+  if (functionalButtons.includes(event.code)) {
+    button = keyboard.querySelector(`#${event.code}`);
+  } else {
+    button = button = keyboard.querySelector(`[data-code="${event.code}"]`);
+  }
+
+  button.classList.toggle('key-button:active');
+
+  setTimeout(() => {
+    button.classList.toggle('clicked');
+  }, 200);
+});
+
+

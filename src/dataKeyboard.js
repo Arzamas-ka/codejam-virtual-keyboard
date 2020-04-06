@@ -12,7 +12,7 @@ const dataKeyboardEng = [
     { letter: '0', class: 'key-button key-small', id: 48, code: 'Digit0' },
     { letter: '-', class: 'key-button key-small', id: 189, code: 'Minus' },
     { letter: '=', class: 'key-button key-small', id: 187, code: 'Equal' },
-    { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' }
+    { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' },
   ],
   [
     { letter: 'RU/EN', class: 'key-button key-languages' },
@@ -25,7 +25,7 @@ const dataKeyboardEng = [
     { letter: 'u', class: 'key-button key-small', id: 85, code: 'KeyU' },
     { letter: 'i', class: 'key-button key-small', id: 73, code: 'KeyI' },
     { letter: 'o', class: 'key-button key-small', id: 79, code: 'KeyO' },
-    { letter: 'p', class: 'key-button key-small', id: 80, code: 'Key' }
+    { letter: 'p', class: 'key-button key-small', id: 80, code: 'Key' },
   ],
   [
     { letter: 'CapsLock', class: 'key-button key-medium', code: 'CapsLock' },
@@ -38,14 +38,14 @@ const dataKeyboardEng = [
     { letter: 'j', class: 'key-button key-small', id: 74, code: 'KeyJ' },
     { letter: 'k', class: 'key-button key-small', id: 75, code: 'KeyK' },
     { letter: 'l', class: 'key-button key-small', id: 76, code: 'KeyL' },
-    { letter: 'Enter', class: 'key-button key-medium', code: 'Enter' }
+    { letter: 'Enter', class: 'key-button key-medium', code: 'Enter' },
   ],
   [
     {
       letter: 'Shift',
       class: 'key-button key-medium',
       id: 'ShiftLeft',
-      code: 'ShiftLeft'
+      code: 'ShiftLeft',
     },
     { letter: 'z', class: 'key-button key-small', id: 90, code: 'KeyZ' },
     { letter: 'x', class: 'key-button key-small', id: 88, code: 'KeyX' },
@@ -61,36 +61,36 @@ const dataKeyboardEng = [
       letter: 'Shift',
       class: 'key-button key-medium',
       id: 'ShiftRight',
-      code: 'ShiftRight'
-    }
+      code: 'ShiftRight',
+    },
   ],
   [
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',
       id: 'ControlLeft',
-      code: 'ControlLeft'
+      code: 'ControlLeft',
     },
     {
       letter: 'Alt',
       class: 'key-button key-medium',
       id: 'AltLeft',
-      code: 'AltLeft'
+      code: 'AltLeft',
     },
     { letter: 'Space', class: 'key-button key-big', code: 'Space' },
     {
       letter: 'Alt',
       class: 'key-button key-medium',
       id: 'AltRight',
-      code: 'AltRight'
+      code: 'AltRight',
     },
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',
       id: 'ControlRight',
-      code: 'ControlRight'
-    }
-  ]
+      code: 'ControlRight',
+    },
+  ],
 ];
 
 const dataKeyboardRu = [
@@ -107,7 +107,7 @@ const dataKeyboardRu = [
     { letter: ')', class: 'key-button key-small', id: 48, code: 'Digit0' },
     { letter: '_', class: 'key-button key-small', id: 189, code: 'Minus' },
     { letter: '+', class: 'key-button key-small', id: 187, code: 'Equal' },
-    { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' }
+    { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' },
   ],
   [
     { letter: 'RU/EN', class: 'key-button key-languages' },
@@ -120,7 +120,7 @@ const dataKeyboardRu = [
     { letter: 'г', class: 'key-button key-small', id: 85, code: 'KeyU' },
     { letter: 'ш', class: 'key-button key-small', id: 73, code: 'KeyI' },
     { letter: 'щ', class: 'key-button key-small', id: 79, code: 'KeyO' },
-    { letter: 'з', class: 'key-button key-small', id: 80, code: 'KeyP' }
+    { letter: 'з', class: 'key-button key-small', id: 80, code: 'KeyP' },
   ],
   [
     { letter: 'CapsLock', class: 'key-button key-medium', code: 'CapsLock' },
@@ -133,7 +133,7 @@ const dataKeyboardRu = [
     { letter: 'о', class: 'key-button key-small', id: 74, code: 'KeyJ' },
     { letter: 'л', class: 'key-button key-small', id: 75, code: 'KeyK' },
     { letter: 'д', class: 'key-button key-small', id: 76, code: 'KeyL' },
-    { letter: 'Enter', class: 'key-button key-medium', code: 'Enter' }
+    { letter: 'Enter', class: 'key-button key-medium', code: 'Enter' },
   ],
   [
     { letter: 'Shift', class: 'key-button key-medium', id: 'ShiftLeft' },
@@ -151,42 +151,42 @@ const dataKeyboardRu = [
       letter: 'Shift',
       class: 'key-button key-medium',
       id: 'ShiftRight',
-      code: 'ShiftRight'
-    }
+      code: 'ShiftRight',
+    },
   ],
   [
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',
       id: 'ControlLeft',
-      code: 'ControlLeft'
+      code: 'ControlLeft',
     },
     {
       letter: 'Alt',
       class: 'key-button key-medium',
       id: 'AltLeft',
-      code: 'AltLeft'
+      code: 'AltLeft',
     },
     { letter: 'Space', class: 'key-button key-big', code: 'Space' },
     {
       letter: 'Alt',
       class: 'key-button key-medium',
       id: 'AltRight',
-      code: 'AltRight'
+      code: 'AltRight',
     },
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',
       id: 'ControlRight',
-      code: 'ControlRight'
-    }
-  ]
+      code: 'ControlRight',
+    },
+  ],
 ];
 
 /* eslint-disable-next-line */
 const dataKeyboard = {
   en: dataKeyboardEng,
-  ru: dataKeyboardRu
+  ru: dataKeyboardRu,
 };
 
 export default dataKeyboard;
