@@ -193,4 +193,35 @@ document.addEventListener('keydown', (event) => {
   }, 200);
 });
 
+textarea.addEventListener('keypress', (event) => {
+  event.preventDefault();
 
+  const languageLetters = dataKeyboard[language].flat();
+  const enteredLetter = languageLetters.find(
+    (value) => value.code === event.code
+  );
+  const enteredValue =
+    enteredLetter.letter.length === 1 ? enteredLetter.letter : '';
+
+  if (enteredLetter.letter === 'Shift') {
+    isShiftActive = !isShiftActive;
+    return;
+  }
+
+  if (enteredLetter.letter === 'Enter') {
+    textarea.value += '\n';
+    return;
+  }
+
+  if (enteredLetter.letter === 'Space') {
+    textarea.value += ' ';
+    return;
+  }
+
+  if (isCapsLockActive || event.shiftKey) {
+    textarea.value += enteredValue.toUpperCase();
+    return;
+  }
+
+  textarea.value = textarea.value + enteredValue;
+});
