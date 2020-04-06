@@ -89,7 +89,14 @@ body {
 	box-shadow:
 		0.1em 0.1em 0.1em rgba(0, 0, 0, 0.2),
 		0 0 0 0.05em rgba(0, 0, 0, 0.4), 
-		-0.025em -0.05em 0.025em rgba(255, 255, 255, 0.8) inset;
+    -0.025em -0.05em 0.025em rgba(255, 255, 255, 0.8) inset;
+
+    transform:  translate(1px);
+}
+
+.outline {
+  outline: 1px dotted #212121;
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 .key-small {

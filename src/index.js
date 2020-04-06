@@ -61,6 +61,12 @@ const clickListenerKeyboard = () => {
       return;
     }
 
+    if (button.innerText === 'Tab') {
+      textarea.value += '\t';
+      textarea.focus();
+      return;
+    }
+
     if (button.innerText === 'Backspace' || textarea.value === 'Backspace') {
       if (textarea.value.length < 0) return;
       for (let i = 0; i < textarea.value.length; i++) {
@@ -124,7 +130,7 @@ const renderKeyboard = () => {
       rowWrapper.append(span);
       ind++;
     }
-
+   
     keyboard.append(rowWrapper);
   });
 
@@ -140,10 +146,6 @@ const render = () => {
   document.body.prepend(mainContainer);
 };
 render();
-
-window.onload = () => {
-  document.querySelector('.textarea').focus();
-};
 
 document.addEventListener('keyup', (event) => {
   if (event.code === 'CapsLock' && !event.getModifierState('CapsLock')) {
@@ -170,6 +172,11 @@ document.addEventListener('keydown', (event) => {
     'ShiftLeft',
     'ShiftRight',
   ];
+
+  if (event.code === 'Tab') {
+    event.preventDefault();
+    textarea.value += '\t';
+  }
 
   if (event.code === 'CapsLock' && event.getModifierState('CapsLock')) {
     isCapsLockActive = true;
@@ -234,3 +241,7 @@ textarea.addEventListener('keypress', (event) => {
 
   textarea.value = textarea.value + enteredValue;
 });
+
+window.onload = () => {
+  document.querySelector('.textarea').focus();
+};

@@ -15,7 +15,7 @@ const dataKeyboardEng = [
     { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' },
   ],
   [
-    { letter: 'RU/EN', class: 'key-button key-languages' },
+    { letter: 'Tab', class: 'key-button key-medium', id: 9, code: 'Tab' },
     { letter: 'q', class: 'key-button key-small', id: 81, code: 'KeyQ' },
     { letter: 'w', class: 'key-button key-small', id: 87, code: 'KeyW' },
     { letter: 'e', class: 'key-button key-small', id: 69, code: 'KeyE' },
@@ -26,6 +26,8 @@ const dataKeyboardEng = [
     { letter: 'i', class: 'key-button key-small', id: 73, code: 'KeyI' },
     { letter: 'o', class: 'key-button key-small', id: 79, code: 'KeyO' },
     { letter: 'p', class: 'key-button key-small', id: 80, code: 'Key' },
+    { letter: '{', class: 'key-button key-small', id: 219, code: 'BracketLeft' },
+    { letter: '}', class: 'key-button key-small', id: 221, code: 'BracketRight' },
   ],
   [
     { letter: 'CapsLock', class: 'key-button key-medium', code: 'CapsLock' },
@@ -56,7 +58,7 @@ const dataKeyboardEng = [
     { letter: 'm', class: 'key-button key-small', id: 77, code: 'KeyM' },
     { letter: ',', class: 'key-button key-small', id: 188, code: 'Comma' },
     { letter: '.', class: 'key-button key-small', id: 190, code: 'Period' },
-    { letter: '?', class: 'key-button key-small', id: 191, code: 'Slash' },
+    { letter: '/', class: 'key-button key-small', id: 191, code: 'Slash' },
     {
       letter: 'Shift',
       class: 'key-button key-medium',
@@ -65,6 +67,7 @@ const dataKeyboardEng = [
     },
   ],
   [
+    { letter: 'RU/EN', class: 'key-button key-languages' },
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',
@@ -110,7 +113,7 @@ const dataKeyboardRu = [
     { letter: 'Backspace', class: 'key-button key-medium', code: 'Backspace' },
   ],
   [
-    { letter: 'RU/EN', class: 'key-button key-languages' },
+    { letter: 'Tab', class: 'key-button key-medium', id: 9, code: 'Tab' },
     { letter: 'й', class: 'key-button key-small', id: 81, code: 'KeyQ' },
     { letter: 'ц', class: 'key-button key-small', id: 87, code: 'KeyW' },
     { letter: 'у', class: 'key-button key-small', id: 69, code: 'KeyE' },
@@ -121,6 +124,8 @@ const dataKeyboardRu = [
     { letter: 'ш', class: 'key-button key-small', id: 73, code: 'KeyI' },
     { letter: 'щ', class: 'key-button key-small', id: 79, code: 'KeyO' },
     { letter: 'з', class: 'key-button key-small', id: 80, code: 'KeyP' },
+    { letter: '[', class: 'key-button key-small', id: 219, code: 'BracketLeft' },
+    { letter: ']', class: 'key-button key-small', id: 221, code: 'BracketRight' },
   ],
   [
     { letter: 'CapsLock', class: 'key-button key-medium', code: 'CapsLock' },
@@ -146,7 +151,7 @@ const dataKeyboardRu = [
     { letter: 'ь', class: 'key-button key-small', id: 77, code: 'KeyM' },
     { letter: 'б', class: 'key-button key-small', id: 188, code: 'Comma' },
     { letter: 'ю', class: 'key-button key-small', id: 190, code: 'Period' },
-    { letter: '/', class: 'key-button key-small', id: 191, code: 'Slash' },
+    { letter: '?', class: 'key-button key-small', id: 191, code: 'Slash' },
     {
       letter: 'Shift',
       class: 'key-button key-medium',
@@ -155,6 +160,7 @@ const dataKeyboardRu = [
     },
   ],
   [
+    { letter: 'RU/EN', class: 'key-button key-languages' },
     {
       letter: 'Ctrl',
       class: 'key-button key-medium',
