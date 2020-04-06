@@ -11,7 +11,7 @@ let isShiftActive = false;
 let keyboard;
 
 const renderTextarea = () => {
-  textarea.classList = 'textarea';
+  textarea.className = 'textarea';
   textarea.setAttribute = 'row = 50';
   textarea.setAttribute = 'cols = 5';
   mainContainer.prepend(textarea);
@@ -22,11 +22,17 @@ const clickListenerKeyboard = () => {
     if (!event.target.classList.contains('key-button')) return;
 
     setTimeout(() => {
-      event.target.classList.toggle('key-button:active');
+      event.target.classList.toggle('key-button--active');
 
       if (button.innerText === 'RU/EN') {
         language = language === 'en' ? 'ru' : 'en';
         localStorage.setItem('keyboardLanguage', `${language}`);
+        renderKeyboard();
+        return;
+      }
+
+      if (button.innerText === 'CapsLock') {
+        isCapsLockActive = !isCapsLockActive;
         renderKeyboard();
         return;
       }
@@ -35,7 +41,7 @@ const clickListenerKeyboard = () => {
     let button = keyboard.querySelector(
       `[data-letter='${event.target.innerHTML}']`
     );
-    event.target.classList.toggle('key-button:active');
+    event.target.classList.toggle('key-button--active');
 
     const functionalButtons = ['RU/EN', 'CapsLock', 'Alt', 'Ctrl'];
     if (functionalButtons.includes(button.innerText)) return;
@@ -63,13 +69,15 @@ const clickListenerKeyboard = () => {
       }
       return;
     }
+
+    textarea.value += button.innerText;
   };
   keyboard.removeEventListener('click', functionalButtonsHandler);
   keyboard.addEventListener('click', functionalButtonsHandler);
 };
 
 const renderKeyboard = () => {
-  const isKeyboardExist = document.querySelector('keyboard');
+  const isKeyboardExist = document.querySelector('.keyboard');
 
   if (isKeyboardExist) mainContainer.removeChild(isKeyboardExist);
 
@@ -145,10 +153,10 @@ document.addEventListener('keyup', (event) => {
 
   if (event.code === 'CapsLock') {
     const button = keyboard.querySelector(`[data-letter='${event.code}']`);
-    button.classList.toggle('key-button:active');
+    button.classList.toggle('key-button--active');
 
     setTimeout(() => {
-      button.classList.toggle('key-button:active');
+      button.classList.toggle('key-button--active');
     }, 200);
   }
 });
@@ -180,16 +188,17 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Meta') return;
 
   let button;
+
   if (functionalButtons.includes(event.code)) {
     button = keyboard.querySelector(`#${event.code}`);
   } else {
     button = button = keyboard.querySelector(`[data-code="${event.code}"]`);
   }
 
-  button.classList.toggle('key-button:active');
+  button.classList.toggle('key-button--active');
 
   setTimeout(() => {
-    button.classList.toggle('clicked');
+    button.classList.toggle('key-button--active');
   }, 200);
 });
 
