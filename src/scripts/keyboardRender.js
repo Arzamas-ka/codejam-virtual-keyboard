@@ -1,6 +1,7 @@
 import clickListenerKeyboard from './clickListener';
 import dataKeyboard from '../constants/dataKeyboard';
 import { stateButtons } from '../constants/stateButtons';
+import { valueButtons } from '../constants/valueButtons';
 
 const renderKeyboard = () => {
   const isKeyboardExist = document.querySelector('.keyboard');
@@ -11,7 +12,7 @@ const renderKeyboard = () => {
   const keyboard = document.createElement('div');
   keyboard.className = 'keyboard';
 
-  const language = localStorage.getItem('keyboardLanguage') || 'en';
+  const language = localStorage.getItem('keyboardLanguage') || valueButtons.englishLang;
 
   const languageKeyboard = dataKeyboard[language];
   languageKeyboard.forEach((row) => {
@@ -46,7 +47,7 @@ const renderKeyboard = () => {
           ? row[ind].letter.toUpperCase()
           : row[ind].letter;
 
-      if (row[ind].letter === 'Alt' || row[ind].letter === 'Ctrl') {
+      if (row[ind].letter === valueButtons.altButton || row[ind].letter === valueButtons.ctrlButton) {
         span.style.width = '50px';
       }
 

@@ -189,7 +189,6 @@ const dataKeyboardRu = [
   ],
 ];
 
-/* eslint-disable-next-line */
 const dataKeyboard = {
   en: dataKeyboardEng,
   ru: dataKeyboardRu,
