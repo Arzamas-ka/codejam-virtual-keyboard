@@ -1,0 +1,132 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 0;
+
+  font-family: "PT Sans Regular", "Arial", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textarea {
+  display: block;
+  width: 800px;
+  height: 300px;
+  margin: 0 auto;
+  margin: 50px 0;
+  padding: 10px;
+
+  font-size: 18px;
+  color: #444;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+	background-image: linear-gradient(90deg, #888, #ccc);
+	border-radius: 7px;
+	box-shadow: -16px -16px 24px rgba(0, 0, 0, .6), 0 0 0 1px #aaa inset;
+	
+	margin: 48px auto 0 auto;
+	padding: 4px;
+
+}
+
+.row-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  margin: 0 20px;
+}
+
+.row-wrapper:nth-child(1) {
+  margin-top: 20px;
+}
+
+.row-wrapper:nth-child(5) {
+  margin-bottom: 20px;
+}
+
+.key-button {
+  position: relative;
+  vertical-align: top;
+  
+  background-color: #eee;
+	border: 0;
+	border-radius: 2px;
+	box-shadow:
+		-3px -2px 2px rgba(0, 0, 0, .25), 
+		0 0 0 0.6px rgba(0, 0, 0, .3), 
+		1px 1px 1px rgba(0, 0, 0, .4) inset, 
+		-.8px -.8px 1px rgba(255, 255, 255, .8) inset;
+	color: #777;
+	font-size: 16px;
+	outline: 0;
+
+	appearance: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.key-button:not(:last-of-type) {
+	margin-right: 6px;
+}
+
+.key-button--active {
+	box-shadow:
+		1.5px 1.5px 1.5px rgba(0, 0, 0, .2),
+		0 0 0 .8px rgba(0, 0, 0, .4), 
+    -.4px -.8px .4px rgba(255, 255, 255, .8) inset;
+
+    transform:  translate(1px);
+}
+
+.outline {
+  outline: 1px dotted #212121;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+.key-small {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 3px;
+  padding: 10px;
+}
+
+.key-medium {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  margin: 3px;
+  padding: 10px;
+}
+
+.key-big {
+  display: inline-block;
+  width: 350px;
+  height: 40px;
+  margin: 3px;
+  padding: 10px;
+}
+
+.key-languages {
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  margin: 3px;
+  padding: 10px;
+} 
